@@ -3,22 +3,21 @@
 
 int main(void)
 {
-    int* pi = NULL;
+    int *p = NULL;
 
-    // 가이드: int형 자료 하나를 저장할 동적 메모리를 할당하세요.
-    pi = (int*) [      ]( [           ] );
-    if (pi == NULL)
+    p = (int *)malloc(sizeof(int));
+
+    if (p == NULL)
     {
-        printf("메모리 할당에 문제가 있습니다.");
-        exit(1);
-    };
+        printf("메모리 할당 실패\n");
+        return 1;
+    }
 
-    // 가이드: 동적 메모리에 값 7을 저장하고 출력하세요.
-    [   ] = 7;
-    printf("주소 값: *pi = %p, 저장 값: p = %d\n", pi, [   ]);
+    *p = 10;
+    printf("저장된 값: %d\n", *p);
 
-    // 가이드: 동적 메모리를 해제하세요.
-    [    ](pi);
+    free(p);
+    p = NULL;
 
     return 0;
 }
